@@ -3,6 +3,7 @@
 #include<stdio.h>
 GLfloat x1,y1,x2,y2,x3,y3,x4,y4;
 GLfloat div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4;
+GLfloat div_x_1,div_y_1,div_x_2,div_y_2,div_x_3,div_y_3,div_x_4,div_y_4;
 
 
 
@@ -48,7 +49,7 @@ void scanfill(float x1,float y1,float x2,float y2,float x3,float y3,float x4,flo
             for(i=0;i<SCREEN_WIDTH;i++)
             {
                         le[i]=SCREEN_WIDTH;
-                        re[i]=0;
+                        re[i]=x1;
             }
             edgedetect(x1,y1,x2,y2,le,re);
             edgedetect(x2,y2,x3,y3,le,re);
@@ -66,10 +67,41 @@ void runaway(void)
 {
     x1=0,y1=50,x2=0,y2=350,x3=1920,y3=350,x4=1920,y4=50;
     scanfill(x1,y1,x2,y2,x3,y3,x4,y4,0.000,0.000,0.000);
-    div_x1=25,div_x2=25,div_x3=75,div_x4=75;
-    div_y1=160,div_y2=190,div_y3=190,div_y4=160;
+    div_x1=0,div_x2=20,div_x3=120,div_x4=100;
+    div_y1=185,div_y2=215,div_y3=215,div_y4=185;
     scanfill(div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4,0.753,0.753,0.753);
+    int k=100;
+    while(k<1920)
+    {
+        div_x1+=200,div_x2+=200,div_x3+=200,div_x4+=200;
+        scanfill(div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4,0.753,0.753,0.753);
+        k+=200;
 
+
+    }
+
+    //}
+    /*glPushMatrix();
+glColor3f(1.0,1.0,1.0);
+glBegin(GL_POLYGON);//white strips on road
+glVertex2f(200,185);
+glVertex2f(200,215);
+glVertex2f(300,215);
+glVertex2f(300,185);
+glEnd();
+glPopMatrix();
+
+glColor3f(1.0,1.0,1.0);
+glBegin(GL_POLYGON);//white strips on road
+glVertex2f(400,185);
+glVertex2f(400,215);
+glVertex2f(500,215);
+glVertex2f(500,185);
+glEnd();
+glPopMatrix();
+
+
+*/
     glFlush();
 
 
