@@ -10,6 +10,9 @@ GLfloat tower_top_x1,tower_top_y1,tower_top_x2,tower_top_y2,tower_top_x3,tower_t
 GLfloat tower_ant_x1,tower_ant_y1,tower_ant_x2,tower_ant_y2,tower_ant_x3,tower_ant_y3,tower_ant_x4,tower_ant_y4;
 GLfloat tx1,ty1,tx2,ty2,tx3,ty3,tx4,ty4;
 
+GLfloat air_x1,air_y1,air_x2,air_y2,air_x3,air_y3,air_x4,air_y4;
+
+
 int SCREEN_WIDTH=1920;
 int SCREEN_HEIGHT=1080;
 
@@ -121,19 +124,31 @@ void runaway(void)
     void tower(void)
     {
         //Base of tower
-        tower_base_x1=100,tower_base_x2=100,tower_base_x3=230,tower_base_x4=230,tower_base_y1=350,tower_base_y2=650,tower_base_y3=650,tower_base_y4=350;
+        tower_base_x1=1700,tower_base_x2=1700,tower_base_x3=1830,tower_base_x4=1830,tower_base_y1=350,tower_base_y2=650,tower_base_y3=650,tower_base_y4=350;
         scanfill_bushes(tower_base_x1,tower_base_y1,tower_base_x2,tower_base_y2,tower_base_x3,tower_base_y3,tower_base_x4,tower_base_y4,0.541,0.541,0.458);
         //Top of Tower
-        tower_top_x1=80,tower_top_x2=80,tower_top_x3=250,tower_top_x4=250,tower_top_y1=630,tower_top_y2=700,tower_top_y3=700,tower_top_y4=630;
+        tower_top_x1=1680,tower_top_x2=1680,tower_top_x3=1850,tower_top_x4=1850,tower_top_y1=630,tower_top_y2=700,tower_top_y3=700,tower_top_y4=630;
         scanfill(tower_top_x1,tower_top_y1,tower_top_x2,tower_top_y2,tower_top_x3,tower_top_y3,tower_top_x4,tower_top_y4,0.541,0.541,0.458);
         //Blue part of top
-        tx1=80,ty1=655,tx2=80,ty2=675,tx3=250,ty3=675,tx4=250,ty4=655;
+        tx1=1680,ty1=655,tx2=1680,ty2=675,tx3=1850,ty3=675,tx4=1850,ty4=655;
         scanfill(tx1,ty1,tx2,ty2,tx3,ty3,tx4,ty4,0.000,0.000,0.804);
         //Antenna of tower
-        tower_ant_x1=155,tower_ant_x2=155,tower_ant_x3=180,tower_ant_x4=180,tower_ant_y1=700,tower_ant_y2=760,tower_ant_y3=760,tower_ant_y4=700;
+        tower_ant_x1=1755,tower_ant_x2=1755,tower_ant_x3=1780,tower_ant_x4=1780,tower_ant_y1=700,tower_ant_y2=770,tower_ant_y3=770,tower_ant_y4=700;
         scanfill(tower_ant_x1,tower_ant_y1,tower_ant_x2,tower_ant_y2,tower_ant_x3,tower_ant_y3,tower_ant_x4,tower_ant_y4,0.541,0.541,0.458);
 
         glFlush();
+    }
+
+    void airport(void)
+    {
+        air_x1=0,air_x2=0,air_x3=1330,air_x4=1330;
+        air_y1=350,air_y2=550,air_y3=550,air_y4=350;
+        scanfill(air_x1,air_y1,air_x2,air_y2,air_x3,air_y3,air_x4,air_y4,0.541,0.541,0.458);
+
+        //airport window
+        air_x1=0,air_x2=0,air_x3=1300,air_x4=1300;
+        air_y1=450,air_y2=530,air_y3=530,air_y4=450;
+        scanfill(air_x1,air_y1,air_x2,air_y2,air_x3,air_y3,air_x4,air_y4,0.000,0.000,0.804);
 
 
     }
@@ -148,6 +163,7 @@ runaway();
 bottomsideBushes();
 topsideBushes();
 tower();
+airport();
 glutSwapBuffers();
 }
 
