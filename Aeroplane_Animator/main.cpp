@@ -4,8 +4,7 @@
 GLfloat x1,y1,x2,y2,x3,y3,x4,y4;
 GLfloat div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4;
 GLfloat bside_x1,bside_y1,bside_x2,bside_y2,bside_x3,bside_y3,bside_x4,bside_y4;
-
-
+GLfloat tside_x1,tside_y1,tside_x2,tside_y2,tside_x3,tside_y3,tside_x4,tside_y4;
 
 int SCREEN_WIDTH=1920;
 int SCREEN_HEIGHT=1080;
@@ -62,6 +61,27 @@ for(y=0;y<SCREEN_HEIGHT;y++)
                                     drawpixel(i,y,r,g,b);
 }
 }
+void scanfill_bushes(float x1,float y1,float x2,float y2,float x3,float y3,float x4,float y4,float r,float g,float b)
+{
+            int le[SCREEN_WIDTH],re[SCREEN_HEIGHT];
+            int i,y;
+            for(i=0;i<SCREEN_WIDTH;i++)
+            {
+                        le[i]=SCREEN_WIDTH;
+                        re[i]=0;
+            }
+            edgedetect(x1,y1,x2,y2,le,re);
+            edgedetect(x2,y2,x3,y3,le,re);
+            edgedetect(x3,y3,x4,y4,le,re);
+            edgedetect(x4,y4,x1,y1,le,re);
+for(y=0;y<SCREEN_HEIGHT;y++)
+{
+           if(le[y]<=re[y])
+                        for(i=le[y]+1;i<re[y];i++)
+                                    drawpixel(i,y,r,g,b);
+}
+}
+
 
 void runaway(void)
 {
@@ -80,29 +100,36 @@ void runaway(void)
 
     }
     glFlush();
-
-    void bottomsideBushes()
+}
+    void bottomsideBushes(void)
     {
         bside_x1=0,bside_y1=0,bside_x2=0,bside_y2=50,bside_x3=1920,bside_y3=50,bside_x4=1920,bside_y4=0;
-
-
+        scanfill(bside_x1,bside_y1,bside_x2,bside_y2,bside_x3,bside_y3,bside_x4,bside_y4,0.133,0.545,0.133);
+        glFlush();
+    }
+    void topsideBushes(void)
+    {
+        tside_x1=0,tside_y1=350,tside_x2=0,tside_y2=400,tside_x3=1920,tside_y3=400,tside_x4=1920,tside_y4=350;
+        scanfill_bushes(tside_x1,tside_y1,tside_x2,tside_y2,tside_x3,tside_y3,tside_x4,tside_y4,0.133,0.545,0.133);
+        glFlush();
     }
 
 
 
-}
+
 void display(void)
 {
 glClear(GL_COLOR_BUFFER_BIT);
 runaway();
 bottomsideBushes();
+topsideBushes();
 glutSwapBuffers();
 }
 
 
 void myInit(void)
 {
-	glClearColor(0.878,1.000,1.000,1.0);
+	glClearColor(0.854,0.964,0.933,1);
 	gluOrtho2D(0.0,1920.0,0.0,1080.0);
 }
 
