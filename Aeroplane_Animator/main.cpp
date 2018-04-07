@@ -3,7 +3,7 @@
 #include<stdio.h>
 GLfloat x1,y1,x2,y2,x3,y3,x4,y4;
 GLfloat div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4;
-GLfloat div_x_1,div_y_1,div_x_2,div_y_2,div_x_3,div_y_3,div_x_4,div_y_4;
+GLfloat bside_x1,bside_y1,bside_x2,bside_y2,bside_x3,bside_y3,bside_x4,bside_y4;
 
 
 
@@ -49,7 +49,7 @@ void scanfill(float x1,float y1,float x2,float y2,float x3,float y3,float x4,flo
             for(i=0;i<SCREEN_WIDTH;i++)
             {
                         le[i]=SCREEN_WIDTH;
-                        re[i]=x1;
+                        re[i]=x2;
             }
             edgedetect(x1,y1,x2,y2,le,re);
             edgedetect(x2,y2,x3,y3,le,re);
@@ -67,42 +67,26 @@ void runaway(void)
 {
     x1=0,y1=50,x2=0,y2=350,x3=1920,y3=350,x4=1920,y4=50;
     scanfill(x1,y1,x2,y2,x3,y3,x4,y4,0.000,0.000,0.000);
-    div_x1=0,div_x2=20,div_x3=120,div_x4=100;
+    div_x1=0,div_x2=20,div_x3=140,div_x4=120;
     div_y1=185,div_y2=215,div_y3=215,div_y4=185;
     scanfill(div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4,0.753,0.753,0.753);
     int k=100;
     while(k<1920)
     {
-        div_x1+=200,div_x2+=200,div_x3+=200,div_x4+=200;
+        div_x1+=250,div_x2+=250,div_x3+=250,div_x4+=250;
         scanfill(div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4,0.753,0.753,0.753);
         k+=200;
 
 
     }
-
-    //}
-    /*glPushMatrix();
-glColor3f(1.0,1.0,1.0);
-glBegin(GL_POLYGON);//white strips on road
-glVertex2f(200,185);
-glVertex2f(200,215);
-glVertex2f(300,215);
-glVertex2f(300,185);
-glEnd();
-glPopMatrix();
-
-glColor3f(1.0,1.0,1.0);
-glBegin(GL_POLYGON);//white strips on road
-glVertex2f(400,185);
-glVertex2f(400,215);
-glVertex2f(500,215);
-glVertex2f(500,185);
-glEnd();
-glPopMatrix();
-
-
-*/
     glFlush();
+
+    void bottomsideBushes()
+    {
+        bside_x1=0,bside_y1=0,bside_x2=0,bside_y2=50,bside_x3=1920,bside_y3=50,bside_x4=1920,bside_y4=0;
+
+
+    }
 
 
 
@@ -111,6 +95,7 @@ void display(void)
 {
 glClear(GL_COLOR_BUFFER_BIT);
 runaway();
+bottomsideBushes();
 glutSwapBuffers();
 }
 

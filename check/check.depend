@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1523129802 source:c:\users\hp_pc\desktop\projects\cg\cg_project\check\main.cpp
+1523137084 source:c:\users\hp_pc\desktop\projects\cg\cg_project\check\main.cpp
 	<windows.h>
 	<stdio.h>
 	<GL/glut.h>

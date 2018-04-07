@@ -55,7 +55,7 @@ for(y=0;y<500;y++)
 void display()
 {
             glClear(GL_COLOR_BUFFER_BIT);
-            x1=200,y1=200,x2=100,y2=300,x3=200,y3=400,x4=300,y4=300;
+            x1=200,y1=200,x2=220,y2=400,x3=420,y3=400,x4=400,y4=200;
             glBegin(GL_LINE_LOOP);
             glVertex2f(x1,y1);
              glVertex2f(x2,y2);
