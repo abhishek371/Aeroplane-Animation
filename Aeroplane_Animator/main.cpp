@@ -5,6 +5,9 @@ GLfloat x1,y1,x2,y2,x3,y3,x4,y4;
 GLfloat div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4;
 GLfloat bside_x1,bside_y1,bside_x2,bside_y2,bside_x3,bside_y3,bside_x4,bside_y4;
 GLfloat tside_x1,tside_y1,tside_x2,tside_y2,tside_x3,tside_y3,tside_x4,tside_y4;
+GLfloat tower_base_x1,tower_base_y1,tower_base_x2,tower_base_y2,tower_base_x3,tower_base_y3,tower_base_x4,tower_base_y4;
+GLfloat tower_top_x1,tower_top_y1,tower_top_x2,tower_top_y2,tower_top_x3,tower_top_y3,tower_top_x4,tower_top_y4;
+GLfloat tx1,ty1,tx2,ty2,tx3,ty3,tx4,ty4;
 
 int SCREEN_WIDTH=1920;
 int SCREEN_HEIGHT=1080;
@@ -68,7 +71,7 @@ void scanfill_bushes(float x1,float y1,float x2,float y2,float x3,float y3,float
             for(i=0;i<SCREEN_WIDTH;i++)
             {
                         le[i]=SCREEN_WIDTH;
-                        re[i]=0;
+                        re[i]=x1;
             }
             edgedetect(x1,y1,x2,y2,le,re);
             edgedetect(x2,y2,x3,y3,le,re);
@@ -85,10 +88,10 @@ for(y=0;y<SCREEN_HEIGHT;y++)
 
 void runaway(void)
 {
-    x1=0,y1=50,x2=0,y2=350,x3=1920,y3=350,x4=1920,y4=50;
+    x1=0,y1=50,x2=0,y2=300,x3=1920,y3=300,x4=1920,y4=50;
     scanfill(x1,y1,x2,y2,x3,y3,x4,y4,0.000,0.000,0.000);
     div_x1=0,div_x2=20,div_x3=140,div_x4=120;
-    div_y1=185,div_y2=215,div_y3=215,div_y4=185;
+    div_y1=160,div_y2=190,div_y3=190,div_y4=160;
     scanfill(div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4,0.753,0.753,0.753);
     int k=100;
     while(k<1920)
@@ -109,9 +112,21 @@ void runaway(void)
     }
     void topsideBushes(void)
     {
-        tside_x1=0,tside_y1=350,tside_x2=0,tside_y2=400,tside_x3=1920,tside_y3=400,tside_x4=1920,tside_y4=350;
+        tside_x1=0,tside_y1=300,tside_x2=0,tside_y2=350,tside_x3=1920,tside_y3=350,tside_x4=1920,tside_y4=300;
         scanfill_bushes(tside_x1,tside_y1,tside_x2,tside_y2,tside_x3,tside_y3,tside_x4,tside_y4,0.133,0.545,0.133);
         glFlush();
+    }
+
+    void tower(void)
+    {
+        tower_base_x1=100,tower_base_x2=100,tower_base_x3=230,tower_base_x4=230,tower_base_y1=350,tower_base_y2=650,tower_base_y3=650,tower_base_y4=350;
+        scanfill_bushes(tower_base_x1,tower_base_y1,tower_base_x2,tower_base_y2,tower_base_x3,tower_base_y3,tower_base_x4,tower_base_y4,0.541,0.541,0.458);
+        tower_top_x1=80,tower_top_x2=80,tower_top_x3=250,tower_top_x4=250,tower_top_y1=630,tower_top_y2=700,tower_top_y3=700,tower_top_y4=630;
+        scanfill(tower_top_x1,tower_top_y1,tower_top_x2,tower_top_y2,tower_top_x3,tower_top_y3,tower_top_x4,tower_top_y4,0.541,0.541,0.458);
+
+        glFlush();
+
+
     }
 
 
@@ -123,13 +138,14 @@ glClear(GL_COLOR_BUFFER_BIT);
 runaway();
 bottomsideBushes();
 topsideBushes();
+tower();
 glutSwapBuffers();
 }
 
 
 void myInit(void)
 {
-	glClearColor(0.854,0.964,0.933,1);
+	glClearColor(0.854,0.964,0.933,0.5);
 	gluOrtho2D(0.0,1920.0,0.0,1080.0);
 }
 
