@@ -7,6 +7,7 @@ GLfloat bside_x1,bside_y1,bside_x2,bside_y2,bside_x3,bside_y3,bside_x4,bside_y4;
 GLfloat tside_x1,tside_y1,tside_x2,tside_y2,tside_x3,tside_y3,tside_x4,tside_y4;
 GLfloat tower_base_x1,tower_base_y1,tower_base_x2,tower_base_y2,tower_base_x3,tower_base_y3,tower_base_x4,tower_base_y4;
 GLfloat tower_top_x1,tower_top_y1,tower_top_x2,tower_top_y2,tower_top_x3,tower_top_y3,tower_top_x4,tower_top_y4;
+GLfloat tower_ant_x1,tower_ant_y1,tower_ant_x2,tower_ant_y2,tower_ant_x3,tower_ant_y3,tower_ant_x4,tower_ant_y4;
 GLfloat tx1,ty1,tx2,ty2,tx3,ty3,tx4,ty4;
 
 int SCREEN_WIDTH=1920;
@@ -119,12 +120,19 @@ void runaway(void)
 
     void tower(void)
     {
+        //Base of tower
         tower_base_x1=100,tower_base_x2=100,tower_base_x3=230,tower_base_x4=230,tower_base_y1=350,tower_base_y2=650,tower_base_y3=650,tower_base_y4=350;
         scanfill_bushes(tower_base_x1,tower_base_y1,tower_base_x2,tower_base_y2,tower_base_x3,tower_base_y3,tower_base_x4,tower_base_y4,0.541,0.541,0.458);
+        //Top of Tower
         tower_top_x1=80,tower_top_x2=80,tower_top_x3=250,tower_top_x4=250,tower_top_y1=630,tower_top_y2=700,tower_top_y3=700,tower_top_y4=630;
         scanfill(tower_top_x1,tower_top_y1,tower_top_x2,tower_top_y2,tower_top_x3,tower_top_y3,tower_top_x4,tower_top_y4,0.541,0.541,0.458);
+        //Blue part of top
         tx1=80,ty1=655,tx2=80,ty2=675,tx3=250,ty3=675,tx4=250,ty4=655;
         scanfill(tx1,ty1,tx2,ty2,tx3,ty3,tx4,ty4,0.000,0.000,0.804);
+        //Antenna of tower
+        tower_ant_x1=155,tower_ant_x2=155,tower_ant_x3=180,tower_ant_x4=180,tower_ant_y1=700,tower_ant_y2=760,tower_ant_y3=760,tower_ant_y4=700;
+        scanfill(tower_ant_x1,tower_ant_y1,tower_ant_x2,tower_ant_y2,tower_ant_x3,tower_ant_y3,tower_ant_x4,tower_ant_y4,0.541,0.541,0.458);
+
         glFlush();
 
 
