@@ -225,9 +225,10 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1515445924 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
+1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
 
-1515445924 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
+1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
+	<stddef.h>
 	<GL/gl.h>
 
 1523289944 source:d:\backup lenovo\cg\aeroplane\transformation.cpp
@@ -387,4 +388,61 @@
 	<GL\glut.h>
 	"Primitives.h"
 	"Background1.h"
+
+1524077022 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\background1.cpp
+	<windows.h>
+	<GL/glut.h>
+	<stdio.h>
+	"Primitives.h"
+	"Background1.h"
+
+1524077042 c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\primitives.h
+
+1524085135 c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\background1.h
+
+1524078024 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\background2.cpp
+	<windows.h>
+	<stdio.h>
+	<GL\glut.h>
+	"Primitives.h"
+	"Background1.h"
+
+1523701668 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\circle.cpp
+	<windows.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<math.h>
+	<iostream>
+	"Primitives.h"
+
+1524077430 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\main.cpp
+	<windows.h>
+	<stdio.h>
+	<GL\glut.h>
+	"Primitives.h"
+	"Background1.h"
+
+1524067786 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\primitives.cpp
+	<stdlib.h>
+	<math.h>
+	<windows.h>
+	<stdio.h>
+	<GL\glut.h>
+	<iostream>
+	"Primitives.h"
+
+1523606928 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\scanfill.cpp
+	<stdlib.h>
+	<math.h>
+	<windows.h>
+	<stdio.h>
+	<GL\glut.h>
+	<iostream>
+	"Primitives.h"
+
+1523289946 source:c:\users\hp_pc\desktop\projects\cg\cg_project\aeroplane\transformation.cpp
+	<stdlib.h>
+	<math.h>
+	<iostream>
+	"Primitives.h"
 

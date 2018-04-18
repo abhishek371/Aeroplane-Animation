@@ -11,7 +11,8 @@ extern void stripes();
 extern void bushes(void);
 extern void tower(void);
 extern float x1,y1,x2,y2,x3,y3,x4,y4;
-extern float div_x1,div_y1,div_x2,div_y2,div_x3,div_y3,div_x4,div_y4;
+extern float div_x1,div_y1,div_x2,div_y2
+,div_x3,div_y3,div_x4,div_y4;
 extern float bside_x1,bside_y1,bside_x2,bside_y2,bside_x3,bside_y3,bside_x4,bside_y4;
 extern float tside_x1,tside_y1,tside_x2,tside_y2,tside_x3,tside_y3,tside_x4,tside_y4;
 extern float tower_base_x1,tower_base_y1,tower_base_x2,tower_base_y2,tower_base_x3,tower_base_y3,tower_base_x4,tower_base_y4;
